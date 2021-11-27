@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>New User</title>
     <link rel="stylesheet" href="./styles/style.css">
+    <script src="newuser.js"></script>
 </head>
 <body>
     <div class="container">
@@ -41,18 +42,22 @@
 
             <form>
                 <label for="first_name">First Name</label>
-                <input name="first_name" type="text" id="first_name">
+                <input name="first_name" type="text" id="first_name" required>
+                <p class="first"></p>
 
                 <label for="last_name">Last Name</label>
-                <input name="last_name" type="text" id="last_name">
+                <input name="last_name" type="text" id="last_name" required>
+                <p class="last"></p>
 
                 <label for="password">Password</label>
-                <input name="password" type="text" id="password">
+                <input name="password" type="text" id="password" required>
+                <p class="pass"></p>
 
                 <label for="email">Email</label>
-                <input name="email" type="text" id="email">
+                <input name="email" type="text" id="email" required>
+                <p class="mail"></p>
 
-                <button name="submit" type="submit" class="btn">Submit</button>
+                <button name="submit" type="submit" id="btn">Submit</button>
             </form>
         </main>
     </div>
