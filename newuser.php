@@ -1,27 +1,29 @@
 <?php
 $host = 'localhost';
-$username = 'sudhish_user';
+$username = 'new_user';
 $password = 'password123';
-$dbname = 'user';
-$fname = $_GET['first_name'];
-$lname = $_GET['last_name'];
-$password = $_GET['password'];
-$email = $_GET['email'];
-$check = 0;
-$city = "";
+$dbname = 'bugme_demo';
 
-trim(filter_var($country, FILTER_SANITIZE_STRING));
-$fname = trim(filter_var($fname, FILTER_SANITIZE_STRING));;
-$lname = trim(filter_var($lname, FILTER_SANITIZE_STRING));;
-$password = trim(filter_var($password, FILTER_SANITIZE_STRING));;
+$info =explode(" ",$_GET['user']);
+$fname = $info[0];
+$lname = $info[1];
+$userpassword = $info[2];
+$email = $info[3];
+echo' worked ';
+
+$fname = trim(filter_var($fname, FILTER_SANITIZE_STRING));
+$lname = trim(filter_var($lname, FILTER_SANITIZE_STRING));
+$userpassword = trim(filter_var($userpassword, FILTER_SANITIZE_STRING));
 $email = filter_var($email, FILTER_SANITIZE_EMAIL);
 
-$conn = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $username, $password);
+$conn = mysqli_connect($host , $username, $password, $dbname);
+if(!$conn){
+    echo'Connection Error:' . mysqli_connect_error();
+}
 
-if( ctype_alnum($password) && strlen($password)>9 && strlen($password)<21 && preg_match('`[A-Z]`',$password) 
-        && preg_match('`[a-z]`',$password)  && preg_match('`[0-9]`',$password) ){
-
-            $password = mysqli_real_escape_string($conn, $_GET['password']);
+if( ctype_alnum($userpassword) && strlen($userpassword)>9 && strlen($userpassword)<21 && preg_match('`[A-Z]`',$userpassword) 
+        && preg_match('`[a-z]`',$userpassword)  && preg_match('`[0-9]`',$userpassword) ){
+            $userpassword = mysqli_real_escape_string($conn, $info[2]);
     }else{
         echo '<span style= "color: red;"> Please Enter a Password with at least one number, one letter, one capital letter and atleast 8 characters long .</span>';
     }
@@ -31,7 +33,7 @@ if(empty($fname)){
 }else if(!preg_match('/^[a-zA-Z\s]+$/',$fname)){
     echo '<span style= "color: red;"> First Name must be letters only.</span>';
 }else{
-    $fname= mysqli_real_escape_string($conn, $_GET['first_name']);
+    $fname= mysqli_real_escape_string($conn, $info[0]);
 }
 
 if(empty($lname)){
@@ -39,14 +41,23 @@ if(empty($lname)){
 }else if(!preg_match('/^[a-zA-Z\s]+$/',$lname)){
     echo '<span style= "color: red;"> First Name must be letters only.</span>';
 }else{
-    $lname= mysqli_real_escape_string($conn, $_GET['last_name']);
+    $lname= mysqli_real_escape_string($conn, $info[1]);
 }
 
 if(!filter_var($email,FILTER_SANITIZE_EMAIL)){
     echo '<span style= "color: red;"> Email must be a valid email address.</span>';
 }else{
-    $email = mysqli_real_escape_string($conn, $_GET['email']);
+    $email = mysqli_real_escape_string($conn, $info[3]);
 }
+
+$sql = "INSERT INTO user( firstname, lasttname, password,email,date_joined) VALUES('$fname', '$lname', '$userpassword', '$email', SYSDATE())";
+
+if(mysqli_query($conn,$sql)){
+    echo'added to the file';
+}else{
+    echo'didnt write to file';
+}
+
 ?>
 
 

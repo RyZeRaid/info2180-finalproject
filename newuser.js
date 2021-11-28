@@ -55,7 +55,7 @@ window.onload = function(){
 
             xhr.onreadystatechange = function(){
                 if(this.readyState == 4 && this.status == 200){
-                    
+                    document.getElementById("show").innerHTML = this.responseText;
                 }
             }
             xhr.open('GET', 'newuser.php?user='+ firstName + " " + lastName + " " + password + " " + email, true);
