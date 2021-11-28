@@ -23,9 +23,10 @@ if(!$conn){
 
 if( ctype_alnum($userpassword) && strlen($userpassword)>9 && strlen($userpassword)<21 && preg_match('`[A-Z]`',$userpassword) 
         && preg_match('`[a-z]`',$userpassword)  && preg_match('`[0-9]`',$userpassword) ){
-            $userpassword = mysqli_real_escape_string($conn, $info[2]);
+            echo '<span style= "color: red;"> Please Enter a Password with at least one number, one letter, one capital letter and atleast 8 characters long .</span>';
     }else{
-        echo '<span style= "color: red;"> Please Enter a Password with at least one number, one letter, one capital letter and atleast 8 characters long .</span>';
+        $userpassword = mysqli_real_escape_string($conn, $info[2]);
+        
     }
 
 if(empty($fname)){
