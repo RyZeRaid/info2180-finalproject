@@ -9,7 +9,6 @@ $fname = $info[0];
 $lname = $info[1];
 $userpassword = $info[2];
 $email = $info[3];
-echo' worked ';
 
 $fname = trim(filter_var($fname, FILTER_SANITIZE_STRING));
 $lname = trim(filter_var($lname, FILTER_SANITIZE_STRING));
@@ -21,12 +20,11 @@ if(!$conn){
     echo'Connection Error:' . mysqli_connect_error();
 }
 
-if( ctype_alnum($userpassword) && strlen($userpassword)>9 && strlen($userpassword)<21 && preg_match('`[A-Z]`',$userpassword) 
-        && preg_match('`[a-z]`',$userpassword)  && preg_match('`[0-9]`',$userpassword) ){
+if( !ctype_alnum($userpassword) && !strlen($userpassword)>9 && !strlen($userpassword)<50 && !preg_match('`[A-Z]`',$userpassword) 
+        && !preg_match('`[a-z]`',$userpassword)  && !preg_match('`[0-9]`',$userpassword) ){
             echo '<span style= "color: red;"> Please Enter a Password with at least one number, one letter, one capital letter and atleast 8 characters long .</span>';
     }else{
         $userpassword = mysqli_real_escape_string($conn, $info[2]);
-        
     }
 
 if(empty($fname)){
@@ -54,9 +52,9 @@ if(!filter_var($email,FILTER_SANITIZE_EMAIL)){
 $sql = "INSERT INTO user( firstname, lasttname, password,email,date_joined) VALUES('$fname', '$lname', '$userpassword', '$email', SYSDATE())";
 
 if(mysqli_query($conn,$sql)){
-    echo'added to the file';
+    echo'';
 }else{
-    echo'didnt write to file';
+    echo'';
 }
 
 ?>
