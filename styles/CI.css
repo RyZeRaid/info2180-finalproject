@@ -1,0 +1,16 @@
+p{
+    color: red;
+}
+
+input{
+    width: 60%;
+}
+
+#description{
+    width: 60%;
+}
+
+select{
+    width:60%;
+    height: 40px;
+}
