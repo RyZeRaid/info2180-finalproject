@@ -58,7 +58,7 @@ window.onload = function(){
                     document.getElementById("show").innerHTML = this.responseText;
                 }
             }
-            xhr.open('GET', 'newuser.php?user='+ firstName + " " + lastName + " " + password + " " + email, true);
+            xhr.open('GET', 'scripts/newuser.php?user='+ firstName + " " + lastName + " " + password + " " + email, true);
             
             xhr.send();
         }

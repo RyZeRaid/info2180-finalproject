@@ -31,4 +31,4 @@ CREATE TABLE `issues` (
 INSERT INTO `user` VALUES('id','testuserfname', 'testuserlname', 'password123', 'admin@project2.com', SYSDATE());
 
 
-/* GRANT ALL PRIVILEGES ON user.* TO 'new_user'@'localhost'IDENTIFIED BY 'password123';
+/* GRANT ALL PRIVILEGES ON bugme_demo.* TO 'new_user'@'localhost'IDENTIFIED BY 'password123';*/
