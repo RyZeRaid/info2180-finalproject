@@ -42,21 +42,6 @@ main {
     flex-direction: column;
 }
 
-form {
-    display: flex;
-    flex-direction: column;
-}
-
-label {
-    margin-bottom: 10px;
-}
-
-input {
-    border-radius: 5px;
-    width: 660px;
-    height: 40px;
-}
-
 .page-top{
     display: flex;
     flex-direction: row;
@@ -65,55 +50,94 @@ input {
     margin-right: 10%;
 }
 
-.page-top div{
+.page-top{
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+#title{
+    padding-bottom: 0px;
+    margin-bottom: 0;
+}
+
+.issues-info{
     padding-top: 20px;
-    padding-left: 20px;
-}
-
-button{
-    border: none;
-}
-
-.selectors{
     display: flex;
     flex-direction: row;
+    column-gap: 1%;
 }
 
-.selector-buttons{
-    gap: 5px;
-    padding-top: 17px;
-    padding-left: 10px;
+.left-side{
+    flex: 3;
 }
 
-#createBtn {
-    width: 130px;
+
+
+.right-side{
+    flex: 1;
+}
+
+.grey-box{
+    background-color: #E2E8F0;
+    border: 1px groove;
+    border-radius: 5px;
+    box-shadow: 1px 1px 1px #BFBFBF;
+    margin-right: 13%;
+    font-size: medium;
+}
+
+.grey-contents{
+    padding-left: 7px;
+    padding-bottom: 15px;
+}
+
+.grey-title{
+    font-weight: bold;
+    margin-bottom: 0;
+}
+
+.buttons{
+    display: flex;
+    flex-direction: column;
+    row-gap: 17px;
+    margin-right: 13%;
+    padding-top: 20px;
+}
+
+.buttons button{
     height: 30px;
     border-radius: 5px;
-    background-color: #228B22;
+    border: none;
     color: white;
-    
-}
-
-#createBtn:hover{
-    background-color: #2fc22f;
-}
-
-.filterBtn{
-    width: 130px;
-    height: 30px;
-    border-radius: 5px;
-    background-color: white;
     font-weight: bold;
 }
 
-.filterBtn:hover{
-    background-color: #E3F2FD;
+#closedBtn:hover{
+    background-color: #196dec;
+    cursor: pointer;
 }
 
-.filterBtn:focus{
+#closedBtn{
     background-color: #0D47A1;
-    color: white; 
 }
+
+#inProgressBtn:hover{
+    background-color: #2fc22f;
+    cursor: pointer;
+}
+
+#inProgressBtn{
+    background-color: #228B22;
+}
+
+.dates{
+    padding-top: 10px;
+    margin-left: 4%;
+    font-size: small;
+    color:#B5B5B5;
+}
+
 
 a {
     color: black;
@@ -121,7 +145,7 @@ a {
 }
 
 ul {
-    list-style-type: none;
+    list-style-type:symbols();
     margin: 0;
     padding: 0;
 }
