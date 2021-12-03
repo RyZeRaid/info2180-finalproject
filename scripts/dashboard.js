@@ -6,7 +6,7 @@ window.onload = function(){
 
     button1.addEventListener("click", onClick);
     button2.addEventListener("click", onClick);
-    
+    button3.addEventListener("click", onClick);
 
     let logout = document.querySelector('.logout')
     let pcogLogo = document.querySelector('#pcog-logo')
@@ -30,16 +30,19 @@ window.onload = function(){
 
         xhr.onreadystatechange = function(){
             if(this.readyState == 4 && this.status == 200){
-                document.getElementById("table").innerHTML = this.responseText;
+                document.getElementById("show").innerHTML = this.responseText;
             }
         }
-        
+
         if(e.target.id === "all"){
-            xhr.open('GET', 'dashboard.php?context=all', true);
+            console.log('all clicked');
+            xhr.open('GET', 'scripts/dashboard.php?context=all', true);
         }else if (e.target.id === "open"){
-            xhr.open('GET', 'dashboard.php?context=open', true);
+            console.log('open clicked');
+            xhr.open('GET', 'scripts/dashboard.php?context=open', true);
         }else if (e.target.id === "myticket"){
-            xhr.open('GET', 'dashboard.php?context=myticket', true);
+            console.log('myticket clicked');
+            xhr.open('GET', 'scripts/dashboard.php?context=myticket', true);
         }
         xhr.send();
         return;
