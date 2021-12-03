@@ -14,6 +14,8 @@ window.onload = function(){
         let type = document.getElementById("type").value;
         let priority = document.getElementById("priority").value;
 
+        console.log(assignedTo);
+
         const xhr = new XMLHttpRequest();
 
         xhr.onreadystatechange = function(){
@@ -22,10 +24,8 @@ window.onload = function(){
             }
         }
 
-        xhr.open('GET', 'scripts/createissue.php?issue='+ title + "&$&" + description + "$" + assignedTo + "&$&" + type + "&$&" + priority, true);
+        xhr.open('GET', 'scripts/createissue.php?issue='+ title + "&$&" + description + "&$&" + assignedTo + "&$&" + type + "&$&" + priority, true);
         xhr.send();
-
-        console.log(5)
         
         console.log(title);
     }

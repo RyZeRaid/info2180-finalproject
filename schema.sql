@@ -6,7 +6,7 @@ DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
     `id` INT unsigned AUTO_INCREMENT,
     `firstname` VARCHAR(255) NOT NULL ,
-    `lasttname` VARCHAR(255) NOT NULL ,
+    `lastname` VARCHAR(255) NOT NULL ,
     `password` VARCHAR(255) NOT NULL ,
     `email` VARCHAR(50) NOT NULL ,
     `date_joined` DATETIME NOT NULL ,
@@ -28,7 +28,9 @@ CREATE TABLE `issues` (
     PRIMARY KEY  (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=4080 DEFAULT CHARSET=utf8;
 
-INSERT INTO `user` VALUES('id','testuserfname', 'testuserlname', 'password123', 'admin@project2.com', SYSDATE());
+INSERT INTO `user` VALUES('id','testuserfname', 'testuserlname', 'password123', 'admin@project2.com', SYSDATE()),
+('1','Onandi', 'Skeen', 'password123', 'onandiskeen@project2.com', SYSDATE());
+
 
 
 /* GRANT ALL PRIVILEGES ON bugme_demo.* TO 'new_user'@'localhost'IDENTIFIED BY 'password123';*/

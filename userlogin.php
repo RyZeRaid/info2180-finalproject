@@ -46,7 +46,7 @@ if(isset($email) && isset($userpassword))
     if(mysqli_num_rows($result1) > 0 )
         {
             $_SESSION['email'] = $email;
-            header('Location: dashboard.html');
+            header('Location: dashboard.php');
             echo'correct login';
         }
         else

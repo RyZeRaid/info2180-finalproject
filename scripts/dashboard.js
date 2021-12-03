@@ -3,10 +3,16 @@ window.onload = function(){
     let button1 = document.querySelector("#all");
     let button2 = document.querySelector("#open");
     let button3 = document.querySelector("#myticket");
+    let button4 = document.querySelector("#createBtn")
 
     button1.addEventListener("click", onClick);
     button2.addEventListener("click", onClick);
     button3.addEventListener("click", onClick);
+    button4.addEventListener("click", Click);
+
+    function Click(e){
+        window.location.href = "createIssue.php";
+    }
 
     let logout = document.querySelector('.logout')
     let pcogLogo = document.querySelector('#pcog-logo')

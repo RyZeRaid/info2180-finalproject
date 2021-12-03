@@ -15,7 +15,6 @@ if(!$conn){
 
 $context = $_GET['context'];
 $status = 'open';
-echo $context;
 if($context === "all"){
     $stmt = $conn->query("SELECT * FROM issues");
     $st = mysqli_query($conn,"SELECT * FROM issues");
@@ -110,18 +109,19 @@ if($context === "open"){
 }
 
 if($context === "myticket"){
-    $active = $_SESION['email'];
-    $stnt = $conn->query("SELECT * FROM user WHERE  eamil = '$active'"); 
-    $name = $stnt->fetchAll(PDO::FETCH_ASSOC);
+    $active = $_SESSION['email'];
+    $active = mysqli_real_escape_string($conn,$active);
+
+    $stnt = mysqli_query($conn,"SELECT * FROM user WHERE  email = '$active'");
+    $name = mysqli_fetch_assoc($stnt);
     
     $id_tk = $name['id'];
-    $stmt = $conn->query("SELECT * FROM issue WHERE  assigned_to = '$id_tk'"); 
-    $st = mysqli_query($conn,"SELECT * FROM issue WHERE  assigned_to = '$id_tk'");
-    $resulted = mysqli_fetch_assoc($st);
-    $cnt=$st->num_rows;
+
+    $stmt = mysqli_query($conn,"SELECT * FROM issues WHERE  assigned_to = '$id_tk'");
+    $results = mysqli_fetch_assoc($stmt);
+    $cnt=$stmt->num_rows;
 
     if($cnt!=0){
-        $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
         echo "<table id = 'info' border =\"1\" style='border-collapse: collapse'>";
         echo "<tr>";
         echo "<th>Title</th>";
@@ -131,7 +131,7 @@ if($context === "myticket"){
         echo "<th>Created</th>";
         echo "</tr>";
 
-        foreach ($results as $row){
+        foreach ($stmt as $row){
             $id = $row['assigned_to'];
             $stst = $conn->query("SELECT firstname,lastname FROM user WHERE id = '$id'");
             $return_name = $stst->fetchAll(PDO::FETCH_ASSOC);
