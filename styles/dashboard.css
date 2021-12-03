@@ -96,6 +96,10 @@ button{
     
 }
 
+#createBtn:hover{
+    background-color: #2fc22f;
+}
+
 .filterBtn{
     width: 130px;
     height: 30px;
