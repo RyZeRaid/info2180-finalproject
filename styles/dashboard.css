@@ -83,7 +83,7 @@ button{
 
 .selector-buttons{
     gap: 5px;
-    padding-top: 12px;
+    padding-top: 17px;
     padding-left: 10px;
 }
 
@@ -101,6 +101,11 @@ button{
     height: 30px;
     border-radius: 5px;
     background-color: white;
+    font-weight: bold;
+}
+
+.filterBtn:hover{
+    background-color: #E3F2FD;
 }
 
 .filterBtn:focus{
