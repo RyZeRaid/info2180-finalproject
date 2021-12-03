@@ -24,7 +24,7 @@ window.onload = function(){
             }
         }
 
-        xhr.open('GET', 'scripts/createissue.php?issue='+ title + "&$&" + description + "&$&" + assignedTo + "&$&" + type + "&$&" + priority, true);
+        xhr.open('GET', "scripts/createissue.php?title=" + title +"&description=" + description +"&assignedTo=" + assignedTo +"&type=" + type +"&priority=" + priority, true);
         xhr.send();
         
         console.log(title);

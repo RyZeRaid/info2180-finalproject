@@ -16,13 +16,13 @@ if(!$conn){
 $context = $_GET['context'];
 $status = 'open';
 if($context === "all"){
-    $stmt = $conn->query("SELECT * FROM issues");
+    $stmt = mysqli_query($conn,"SELECT * FROM issues");
     $st = mysqli_query($conn,"SELECT * FROM issues");
     $resulted = mysqli_fetch_assoc($st);
     $cnt=$st->num_rows;
 
     if($cnt!=0){
-        $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $results = mysqli_fetch_assoc($stmt);
 
         echo "<table id = 'info' border =\"1\" style='border-collapse: collapse'>";
         echo "<tr>";
@@ -35,14 +35,14 @@ if($context === "all"){
 
         foreach ($results as $row){
             $id = $row['assigned_to'];
-            $stst = $conn->query("SELECT firstname,lastname FROM user WHERE id = '$id'");
-            $return_name = $stst->fetchAll(PDO::FETCH_ASSOC);
+            $stst = mysqli_query($conn,"SELECT firstname,lastname FROM user WHERE id = '$id'");
+            $return_name = mysqli_fetch_assoc($stst);
             
             echo "<tr> \n";
             echo "<td>#" .$row['id'], $row['title']. "</td> \n";
             echo "<td>" .$row['type']. "</td> \n";
             echo "<td>" .$row['status']. "</td> \n";
-            echo "<td>" .$return_name."</td> \n";
+            echo "<td>" .implode(" ",$return_name)."</td> \n";
             echo "<td>" .$row['created']. "</td> \n";
             echo "</tr>";
         }
@@ -63,13 +63,13 @@ if($context === "all"){
 }
 
 if($context === "open"){
-    $stmt = $conn->query("SELECT * FROM issues WHERE status = '%$status%'");
+    $stmt = mysqli_query($conn,"SELECT * FROM issues WHERE status = '%$status%'");
     $st = mysqli_query($conn,"SELECT * FROM issues WHERE status = '%$status%'");
     $resulted = mysqli_fetch_assoc($st);
     $cnt=$st->num_rows;
 
     if($cnt!=0){
-        $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $results = mysqli_fetch_assoc($stmt);
 
         echo "<table id = 'info' border =\"1\" style='border-collapse: collapse'>";
         echo "<tr>";
@@ -81,15 +81,15 @@ if($context === "open"){
         echo "</tr>";
 
         foreach ($results as $row){
-            $id_open = $row['assigned_to'];
-            $stst = $conn->query("SELECT firstname,lastname FROM user WHERE id = '$id_open'");
-            $return_name = $stst->fetchAll(PDO::FETCH_ASSOC);
+            $id = $row['assigned_to'];
+            $stst = mysqli_query($conn,"SELECT firstname,lastname FROM user WHERE id = '$id'");
+            $return_name = mysqli_fetch_assoc($stst);
             
             echo "<tr> \n";
             echo "<td>#" .$row['id'], $row['title']. "</td> \n";
             echo "<td>" .$row['type']. "</td> \n";
             echo "<td>" .$row['status']. "</td> \n";
-            echo "<td>" .$return_name. "</td> \n";
+            echo "<td>" .implode(" ",$return_name). "</td> \n";
             echo "<td>" .$row['created']. "</td> \n";
             echo "</tr>";
         }
@@ -133,14 +133,14 @@ if($context === "myticket"){
 
         foreach ($stmt as $row){
             $id = $row['assigned_to'];
-            $stst = $conn->query("SELECT firstname,lastname FROM user WHERE id = '$id'");
-            $return_name = $stst->fetchAll(PDO::FETCH_ASSOC);
+            $stst = mysqli_query($conn,"SELECT firstname,lastname FROM user WHERE id = '$id'");
+            $return_name = mysqli_fetch_assoc($stst);
             
             echo "<tr> \n";
             echo "<td>#" .$row['id'],$row['title']. "</td> \n";
             echo "<td>" .$row['type']. "</td> \n";
             echo "<td>" .$row['status']. "</td> \n";
-            echo "<td>" .$return_name. "</td> \n";
+            echo "<td>" .implode(" ",$return_name). "</td> \n";
             echo "<td>" .$row['created']. "</td> \n";
             echo "</tr>";
         }
