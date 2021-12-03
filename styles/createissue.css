@@ -5,9 +5,19 @@ body{
     padding: 0;
 }
 
+.container{
+    display: grid;
+    grid-template-columns: 15% 85%;
+    grid-template-rows: 10% auto;
+    grid-template-areas: 
+        "header header"
+        "sidebar main"
+
+}
+
 header {
+    grid-area: header;
     display: flex;
-    margin-bottom: 25px;
     background-color: black;
     color: white;
 }
@@ -20,18 +30,23 @@ header img {
     height: 50px;
 }
 
+aside{
+    grid-area: sidebar;
+    height: 100vh;
+    background-color: #E2E8F0;
+}
 
 main {
     padding-left: 40px;
+    grid-area: main;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
 }
 
 form {
     display: flex;
     flex-direction: column;
+    padding-bottom: 30px;
 }
 
 label {
@@ -42,7 +57,6 @@ input {
     border-radius: 5px;
     width: 660px;
     height: 40px;
-    padding-left: 5px;
 }
 
 #btn{
@@ -60,9 +74,49 @@ input {
     cursor: pointer;
 }
 
-.error {
+a {
+    color: black;
+    text-decoration: none;
+}
+
+.link {
+
     display: flex;
-    justify-content: center;
-    align-items: center;
+    padding-top: 10px;
+    padding-left: 10px;
+}
+
+.link img {
+    width: 25px;
+    height: 25px;
+    padding-right: 10px;
+}
+
+.first, .last, .pass, .mail {
     color: red;
+}
+
+p{
+    color: red;
+}
+
+input{
+    width: 60%;
+    padding-left: 5px;
+}
+
+#description{
+    width: 60%;
+    padding-left: 5px;
+    padding-top: 5px;
+}
+
+select{
+    width:60%;
+    height: 40px;
+    border-radius: 5px;
+}
+
+select:hover{
+    cursor: pointer;
 }

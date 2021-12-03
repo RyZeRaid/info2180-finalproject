@@ -47,6 +47,7 @@ main {
 form {
     display: flex;
     flex-direction: column;
+    padding-bottom: 20px;
 }
 
 label {
@@ -57,13 +58,22 @@ input {
     border-radius: 5px;
     width: 660px;
     height: 40px;
+    padding-left: 5px;
 }
 
-button {
+#btn{
     width: 140px;
-    height: 46px;
+    height: 32px;
     border-radius: 5px;
-    background-color: #5A67D8;
+    background-color: #0D47A1;
+    font-weight: bold;
+    color: white;
+    border: none;
+}
+
+#btn:hover{
+    background-color: #196dec;
+    cursor: pointer;
 }
 
 a {
