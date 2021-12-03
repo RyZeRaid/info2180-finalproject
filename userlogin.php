@@ -5,7 +5,7 @@ session_start();
 $host = 'localhost';
 $username = 'new_user';
 $password = 'password123';
-$dbname = 'churchofgoddb';
+$dbname = 'bugme_demo';
 
 $conn = mysqli_connect($host , $username, $password, $dbname);
 if(!$conn){
@@ -46,13 +46,13 @@ if(isset($email) && isset($userpassword))
     if(mysqli_num_rows($result1) > 0 )
         {
             $_SESSION['email'] = $email;
-            header('Location: HomeScreen.php');
+            header('Location: dashboard.php');
             echo'correct login';
         }
         else
         {
-            include 'header.html';
-            echo 'The username or password is incorrect!';
+            include 'login.html';
+            echo "<div class='error'><p>The username or password is incorrect!</p></div>";
         }
 }
 
