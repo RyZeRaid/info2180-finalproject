@@ -106,6 +106,7 @@ button{
 
 .filterBtn:hover{
     background-color: #E3F2FD;
+    cursor: pointer;
 }
 
 .filterBtn:focus{
