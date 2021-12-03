@@ -36,12 +36,12 @@ if(isset($_SESSION['email'])){
             <aside>
                 <section class="link">
                     <img src="./img/icons8-home-24.png" alt="">
-                    <a href="">Home</a>
+                    <a href="dashboard.php">Home</a>
                 </section>
     
                 <section class="link">
                     <img src="./img/icons8-add-user-male-30.png" alt="">
-                    <a href="">Add User</a>
+                    <a href="newuser.php">Add User</a>
                 </section> 
     
                 <section class="link">
@@ -51,7 +51,7 @@ if(isset($_SESSION['email'])){
     
                 <section class="link">
                     <img src="./img/icons8-shutdown-24.png" alt="">
-                    <a href="">Logout</a>
+                    <a href="logout.php">Logout</a>
                 </section> 
             </aside>
     

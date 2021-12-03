@@ -32,7 +32,7 @@ header img {
 
 aside{
     grid-area: sidebar;
-    height: 100vh;
+    height: inherit;
     background-color: #E2E8F0;
 }
 

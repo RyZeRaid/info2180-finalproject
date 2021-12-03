@@ -49,7 +49,7 @@ if(!filter_var($email,FILTER_SANITIZE_EMAIL)){
     $email = mysqli_real_escape_string($conn, $info[3]);
 }
 
-$sql = "INSERT INTO user( firstname, lasttname, password,email,date_joined) VALUES('$fname', '$lname', '$userpassword', '$email', SYSDATE())";
+$sql = "INSERT INTO user( firstname, lastname, password,email,date_joined) VALUES('$fname', '$lname', '$userpassword', '$email', SYSDATE())";
 
 if(mysqli_query($conn,$sql)){
     echo'';
