@@ -86,6 +86,8 @@ function onClicked(e){
         console.log('inprogress status clicked');
         var showbtn = document.getElementsByClassName("BUTTON"); 
 
+        var stat=[];
+
         for (var i = 0; i < showbtn.length; i++) {
             console.log(showbtn[i].value);
             stat.push(showbtn[i].value);
