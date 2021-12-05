@@ -3,7 +3,9 @@ window.onload = function(){
     let button1 = document.querySelector("#all");
     let button2 = document.querySelector("#open");
     let button3 = document.querySelector("#myticket");
-    let button4 = document.querySelector("#createBtn")
+    let button4 = document.querySelector("#createBtn");
+
+    let btnClicked = false;
 
     button1.addEventListener("click", onClick);
     button2.addEventListener("click", onClick);
@@ -20,17 +22,36 @@ window.onload = function(){
     logout.addEventListener("click", clicked);
     pcogLogo.addEventListener("click", clicked);
 
+    if(btnClicked){
+        let issueLink = document.querySelector(".issueLink");
+
+        issueLink.addEventListener("click",issueClick);
+
+        function issueClick(e){
+
+            console.log("issue clicked")
+
+            console.log(issueLink.value)
+
+            if(e.target.id==="issueLink"){
+                console.log('issueLink clicked');
+                xhr.open('GET', 'scripts/issuelink.php?issue='+issueLink.value, true);
+            }
+        }
+    }
+
     function clicked(e){
         if (e.target.id === "pcog-logo"){
             window.location.href = "HomeScreen.php";
         }else{
             window.location.href = "logout.php";
-        }
-        
+        }  
     }
 
 
     function onClick(e){
+
+        btnClicked = true;
         
         const xhr = new XMLHttpRequest();
 
@@ -43,14 +64,38 @@ window.onload = function(){
         if(e.target.id === "all"){
             console.log('all clicked');
             xhr.open('GET', 'scripts/dashboard.php?context=all', true);
+
         }else if (e.target.id === "open"){
             console.log('open clicked');
             xhr.open('GET', 'scripts/dashboard.php?context=open', true);
+
         }else if (e.target.id === "myticket"){
             console.log('myticket clicked');
             xhr.open('GET', 'scripts/dashboard.php?context=myticket', true);
-        }
+
+        } 
+
         xhr.send();
+
+        if(btnClicked){
+            /*let issueLink = document.getElementById("issueLink");*/
+            console.log(document.getElementsByClassName("issueLink"));
+    
+            /*issueLink.addEventListener("click",issueClick);
+    
+            function issueClick(e){
+    
+                console.log("issue clicked")
+    
+                console.log(issueLink.value)
+    
+                if(e.target.id==="issueLink"){
+                    console.log('issueLink clicked');
+                    xhr.open('GET', 'scripts/issuelink.php?issue='+issueLink.value, true);
+                }
+            }*/
+        }
+
         return;
     }
         

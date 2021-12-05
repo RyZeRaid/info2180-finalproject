@@ -29,8 +29,10 @@ CREATE TABLE `issues` (
 ) ENGINE=MyISAM AUTO_INCREMENT=4080 DEFAULT CHARSET=utf8;
 
 INSERT INTO `user` VALUES('id','testuserfname', 'testuserlname', 'password123', 'admin@project2.com', SYSDATE()),
-('1','Onandi', 'Skeen', 'password123', 'onandiskeen@project2.com', SYSDATE());
+(1,'Onandi', 'Skeen', 'password123', 'onandiskeen@project2.com', SYSDATE());
 
+INSERT INTO `issues` VALUES('100','Location Service not working', 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Blanditiis, iure! Vitae blanditiis, dolor accusamus ratione, commodi eligendi aliquam nihil inventore officia sequi',
+ 'Bug', 'Major', 'Open', 1, 0, SYSDATE(), SYSDATE());
 
 
 /* GRANT ALL PRIVILEGES ON bugme_demo.* TO 'new_user'@'localhost'IDENTIFIED BY 'password123';*/

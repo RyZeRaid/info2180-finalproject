@@ -15,6 +15,7 @@ if(!$conn){
 
 $context = $_GET['context'];
 $status = 'open';
+
 if($context === "all"){
     $stmt = mysqli_query($conn,"SELECT * FROM issues");
     $st = mysqli_query($conn,"SELECT * FROM issues");
@@ -33,13 +34,15 @@ if($context === "all"){
         echo "<th>Created</th>";
         echo "</tr>";
 
-        foreach ($results as $row){
+    
+
+        foreach ($stmt as $row){
             $id = $row['assigned_to'];
             $stst = mysqli_query($conn,"SELECT firstname,lastname FROM user WHERE id = '$id'");
             $return_name = mysqli_fetch_assoc($stst);
             
             echo "<tr> \n";
-            echo "<td>#" .$row['id'], $row['title']. "</td> \n";
+            echo "<td>#" .$row['id']."<button value=".$row['id']." class='issueLink'>".$row['title']. "</button></td> \n";
             echo "<td>" .$row['type']. "</td> \n";
             echo "<td>" .$row['status']. "</td> \n";
             echo "<td>" .implode(" ",$return_name)."</td> \n";
@@ -57,14 +60,13 @@ if($context === "all"){
         echo "<th>Created</th>";
         echo "</tr>";
         echo "</table>";
-
     }
-
 }
 
+
 if($context === "open"){
-    $stmt = mysqli_query($conn,"SELECT * FROM issues WHERE status = '%$status%'");
-    $st = mysqli_query($conn,"SELECT * FROM issues WHERE status = '%$status%'");
+    $stmt = mysqli_query($conn,"SELECT * FROM issues WHERE status = '$status'");
+    $st = mysqli_query($conn,"SELECT * FROM issues WHERE status = '$status'");
     $resulted = mysqli_fetch_assoc($st);
     $cnt=$st->num_rows;
 
@@ -80,13 +82,13 @@ if($context === "open"){
         echo "<th>Created</th>";
         echo "</tr>";
 
-        foreach ($results as $row){
+        foreach ($stmt as $row){
             $id = $row['assigned_to'];
             $stst = mysqli_query($conn,"SELECT firstname,lastname FROM user WHERE id = '$id'");
             $return_name = mysqli_fetch_assoc($stst);
             
             echo "<tr> \n";
-            echo "<td>#" .$row['id'], $row['title']. "</td> \n";
+            echo "<td>#" .$row['id']."<button value=".$row['id']." class='issueLink'>".$row['title']. "</button></td> \n";
             echo "<td>" .$row['type']. "</td> \n";
             echo "<td>" .$row['status']. "</td> \n";
             echo "<td>" .implode(" ",$return_name). "</td> \n";
@@ -137,7 +139,7 @@ if($context === "myticket"){
             $return_name = mysqli_fetch_assoc($stst);
             
             echo "<tr> \n";
-            echo "<td>#" .$row['id'],$row['title']. "</td> \n";
+            echo "<td>#" .$row['id']."<button value=".$row['id']." class='issueLink'>".$row['title']. "</button></td> \n";
             echo "<td>" .$row['type']. "</td> \n";
             echo "<td>" .$row['status']. "</td> \n";
             echo "<td>" .implode(" ",$return_name). "</td> \n";
@@ -158,5 +160,4 @@ if($context === "myticket"){
 
     }
 
-    
 }

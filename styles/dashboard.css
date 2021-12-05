@@ -74,6 +74,16 @@ button{
     border: none;
 }
 
+.issueLink{
+    background-color: white;
+    border: none;
+    color: blue;
+}
+
+.issueLink:hover{
+    cursor: pointer;
+}
+
 .selectors{
     display: flex;
     flex-direction: row;
@@ -96,6 +106,7 @@ button{
 
 #createBtn:hover{
     background-color: #2fc22f;
+    cursor: pointer;
 }
 
 .filterBtn{
@@ -116,7 +127,9 @@ button{
     color: white; 
 }
 
-a {
+
+
+aside a {
     color: black;
     text-decoration: none;
 }
