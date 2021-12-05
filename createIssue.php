@@ -23,7 +23,6 @@ if(isset($_SESSION['email'])){
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Create Issue</title>
         <link rel="stylesheet" href="./styles/createissue.css">
-        <script src="./scripts/createissue.js"></script>
     
     </head>
     <body>
@@ -34,26 +33,26 @@ if(isset($_SESSION['email'])){
             </header>
     
             <aside>
-                <section class="link">
-                    <img src="./img/icons8-home-24.png" alt="">
-                    <a href="dashboard.php">Home</a>
-                </section>
+                    <section class="link">
+                        <img src="./img/icons8-home-24.png" alt="">
+                        <button id="home">Home</button>
+                    </section>
     
-                <section class="link">
-                    <img src="./img/icons8-add-user-male-30.png" alt="">
-                    <a href="newuser.php">Add User</a>
-                </section> 
+                    <section class="link">
+                        <img src="./img/icons8-add-user-male-30.png" alt="">
+                        <button id="adduser">Add User</button>
+                    </section> 
     
-                <section class="link">
-                    <img src="./img/icons8-add-30.png" alt="">
-                    <a href="">New Issue</a>
-                </section> 
+                    <section class="link">
+                        <img src="./img/icons8-add-30.png" alt="">
+                        <button id="newissue">New Issue</button>
+                    </section> 
     
-                <section class="link">
-                    <img src="./img/icons8-shutdown-24.png" alt="">
-                    <a href="logout.php">Logout</a>
-                </section> 
-            </aside>
+                    <section class="link">
+                        <img src="./img/icons8-shutdown-24.png" alt="">
+                        <button id="logout">Logout</button>
+                    </section> 
+                </aside>
     
             <main>
                 <h1>Create Issue</h1>

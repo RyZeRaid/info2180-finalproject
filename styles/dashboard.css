@@ -147,3 +147,34 @@ ul {
 #show{
     padding-top: 15px;
 }
+
+.loginform{
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.loginbutton{
+    width: 140px;
+    height: 32px;
+    border-radius: 5px;
+    background-color: #0D47A1;
+    font-weight: bold;
+    color: white;
+    border: none;
+}
+
+.loginbutton:hover{
+    background-color: #196dec;
+    cursor: pointer;
+}
+
+#home, #adduser, #newissue, #logout {
+    font-size: 18px;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sansserif;
+    background: none;
+    border: none;
+    padding: 0;
+}

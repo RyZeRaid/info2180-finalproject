@@ -23,13 +23,6 @@ $desc = filter_var($_GET['description'], FILTER_SANITIZE_STRING);
 $assignedTo = trim(filter_var($_GET['assignedTo'], FILTER_SANITIZE_STRING));
 $type = trim(filter_var($_GET['type'], FILTER_SANITIZE_STRING));
 $priority = trim(filter_var($_GET['priority'], FILTER_SANITIZE_STRING));
-
-$id = mysqli_real_escape_string($conn, $assignedTo);
-$assignedTo = "";
-$stst = mysqli_query($conn,"SELECT firstname,lastname FROM user WHERE id = '$id'");
-$return_name = mysqli_fetch_assoc($stst);
-$assigned = $return_name;
-$assignedTo = implode(" ",$assigned);
  
 $assignedTo= mysqli_real_escape_string($conn, $assignedTo);
 

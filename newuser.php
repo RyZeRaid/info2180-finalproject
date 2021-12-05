@@ -10,7 +10,6 @@ if(isset($_SESSION['email'])){
         <meta name='viewport' content='width=device-width, initial-scale=1.0'>
         <title>New User</title>
         <link rel='stylesheet' href='./styles/style.css'>
-        <script src='./scripts/newuser.js'></script>
     </head>
     <body>
         <div class='container'>
@@ -20,26 +19,26 @@ if(isset($_SESSION['email'])){
             </header>
     
             <aside>
-                <section class='link'>
-                    <img src='./img/icons8-home-24.png' alt=''>
-                    <a href='dashboard.php'>Home</a>
-                </section>
+                    <section class='link'>
+                        <img src='./img/icons8-home-24.png' alt=''>
+                        <button id='home'>Home</button>
+                    </section>
     
-                <section class='link'>
-                    <img src='./img/icons8-add-user-male-30.png' alt=''>
-                    <a href='newuser.php'>Add User</a>
-                </section> 
+                    <section class='link'>
+                        <img src='./img/icons8-add-user-male-30.png' alt=''>
+                        <button id='adduser'>Add User</button>
+                    </section> 
     
-                <section class='link'>
-                    <img src='./img/icons8-add-30.png' alt=''>
-                    <a href=''>New Issue</a>
-                </section> 
+                    <section class='link'>
+                        <img src='./img/icons8-add-30.png' alt=''>
+                        <button id='newissue'>New Issue</button>
+                    </section> 
     
-                <section class='link'>
-                    <img src='./img/icons8-shutdown-24.png' alt=''>
-                    <a href='logout.php'>Logout</a>
-                </section> 
-            </aside>
+                    <section class='link'>
+                        <img src='./img/icons8-shutdown-24.png' alt=''>
+                        <button id='logout'>Logout</button>
+                    </section> 
+                </aside>
     
             <main>
                 <h2>New User</h2>

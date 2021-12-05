@@ -1,33 +1,28 @@
-window.onload = function(){
+function buttonClicked(e){
 
-    let createBtn = document.getElementById("btn");
+    e.preventDefault();
 
-    createBtn.addEventListener("click",buttonClicked);
+    let title = document.getElementById("title").value;
+    let description = document.getElementById("description").value;
+    let assignedTo = document.getElementById("assign").value;
+    let type = document.getElementById("type").value;
+    let priority = document.getElementById("priority").value;
 
-    function buttonClicked(e){
+    console.log(assignedTo);
 
-        e.preventDefault();
+    const xhr = new XMLHttpRequest();
 
-        let title = document.getElementById("title").value;
-        let description = document.getElementById("description").value;
-        let assignedTo = document.getElementById("assign").value;
-        let type = document.getElementById("type").value;
-        let priority = document.getElementById("priority").value;
-
-        console.log(assignedTo);
-
-        const xhr = new XMLHttpRequest();
-
-        xhr.onreadystatechange = function(){
-            if(this.readyState == 4 && this.status == 200){
-                document.getElementById("show").innerHTML = this.responseText;
-            }
+    xhr.onreadystatechange = function(){
+        if(this.readyState == 4 && this.status == 200){
+            document.getElementById("show").innerHTML = this.responseText;
         }
-
-        xhr.open('GET', "scripts/createissue.php?title=" + title +"&description=" + description +"&assignedTo=" + assignedTo +"&type=" + type +"&priority=" + priority, true);
-        xhr.send();
-        
-        console.log(title);
     }
+
+    xhr.open('GET', "scripts/createissue.php?title=" + title +"&description=" + description +"&assignedTo=" + assignedTo +"&type=" + type +"&priority=" + priority, true);
+    xhr.send();
     
+    console.log(title);
 }
+
+export {buttonClicked};
+    
