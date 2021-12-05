@@ -88,7 +88,10 @@ if(isset($email) && isset($userpassword))
                         </section> 
                     </aside>
             
-                        <main>
+                        
+            
+                            <div id = 'show'>
+                            <main>
             
                             <div class='page-top'>
                                 <h2>Issues</h2>
@@ -107,8 +110,9 @@ if(isset($email) && isset($userpassword))
                                     <button id='myticket' class='filterBtn'>My Ticket</button>
                                 </div>
                             </div>
-            
-                            <div id = 'show'></div>
+
+                            <div id = 'table'></div>
+                            </div>
                         </main>
                     </div>
                 </body>

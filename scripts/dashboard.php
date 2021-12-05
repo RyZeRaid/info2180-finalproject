@@ -16,6 +16,8 @@ if(!$conn){
 $context = $_GET['context'];
 $status = 'open';
 
+
+
 if($context === "all"){
     $stmt = mysqli_query($conn,"SELECT * FROM issues");
     $st = mysqli_query($conn,"SELECT * FROM issues");
@@ -25,7 +27,7 @@ if($context === "all"){
     if($cnt!=0){
         $results = mysqli_fetch_assoc($stmt);
 
-        echo "<table id = 'info' border =\"1\" style='border-collapse: collapse'>";
+        echo "<table id = 'Table1' border =\"1\" style='border-collapse: collapse'>";
         echo "<tr>";
         echo "<th>Title</th>";
         echo "<th>Type</th>";
@@ -42,7 +44,7 @@ if($context === "all"){
             $return_name = mysqli_fetch_assoc($stst);
             
             echo "<tr> \n";
-            echo "<td>#" .$row['id']."<button value=".$row['id']." class='issueLink'>".$row['title']. "</button></td> \n";
+            echo "<td>#" .$row['id']."<button type = 'submit' value=".$row['id']." class ='issueLink' >".$row['title']. "</button></td> \n";
             echo "<td>" .$row['type']. "</td> \n";
             echo "<td>" .$row['status']. "</td> \n";
             echo "<td>" .implode(" ",$return_name)."</td> \n";
@@ -51,7 +53,7 @@ if($context === "all"){
         }
         echo "</table>";
     }else{
-        echo "<table id = 'info' border =\"1\" style='border-collapse: collapse'>";
+        echo "<table id = 'Table1' border =\"1\" style='border-collapse: collapse'>";
         echo "<tr>";
         echo "<th>Title</th>";
         echo "<th>Type</th>";
@@ -73,7 +75,7 @@ if($context === "open"){
     if($cnt!=0){
         $results = mysqli_fetch_assoc($stmt);
 
-        echo "<table id = 'info' border =\"1\" style='border-collapse: collapse'>";
+        echo "<table id = 'Table1' border =\"1\" style='border-collapse: collapse'>";
         echo "<tr>";
         echo "<th>Title</th>";
         echo "<th>Type</th>";
@@ -88,7 +90,7 @@ if($context === "open"){
             $return_name = mysqli_fetch_assoc($stst);
             
             echo "<tr> \n";
-            echo "<td>#" .$row['id']."<button value=".$row['id']." class='issueLink'>".$row['title']. "</button></td> \n";
+            echo "<td>#" .$row['id']."<button type = 'submit' value=".$row['id']." class ='issueLink' >".$row['title']. "</button></td> \n";
             echo "<td>" .$row['type']. "</td> \n";
             echo "<td>" .$row['status']. "</td> \n";
             echo "<td>" .implode(" ",$return_name). "</td> \n";
@@ -97,7 +99,7 @@ if($context === "open"){
         }
         echo "</table>";
     }else{
-        echo "<table id = 'info' border =\"1\" style='border-collapse: collapse'>";
+        echo "<table id = 'Table1' border =\"1\" style='border-collapse: collapse'>";
         echo "<tr>";
         echo "<th>Title</th>";
         echo "<th>Type</th>";
@@ -124,7 +126,7 @@ if($context === "myticket"){
     $cnt=$stmt->num_rows;
 
     if($cnt!=0){
-        echo "<table id = 'info' border =\"1\" style='border-collapse: collapse'>";
+        echo "<table id = 'Table1' border =\"1\" style='border-collapse: collapse'>";
         echo "<tr>";
         echo "<th>Title</th>";
         echo "<th>Type</th>";
@@ -139,7 +141,7 @@ if($context === "myticket"){
             $return_name = mysqli_fetch_assoc($stst);
             
             echo "<tr> \n";
-            echo "<td>#" .$row['id']."<button value=".$row['id']." class='issueLink'>".$row['title']. "</button></td> \n";
+            echo "<td>#" .$row['id']."<button type = 'submit' value=".$row['id']." class ='issueLink' >".$row['title']. "</button></td> \n";
             echo "<td>" .$row['type']. "</td> \n";
             echo "<td>" .$row['status']. "</td> \n";
             echo "<td>" .implode(" ",$return_name). "</td> \n";
@@ -148,7 +150,7 @@ if($context === "myticket"){
         }
         echo "</table>";
     }else{
-        echo "<table id = 'info' border =\"1\" style='border-collapse: collapse'>";
+        echo "<table id = 'Table1' border =\"1\" style='border-collapse: collapse'>";
         echo "<tr>";
         echo "<th>Title</th>";
         echo "<th>Type</th>";
